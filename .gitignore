@@ -1,0 +1,6 @@
+#ignore swap files
+swap/*
+.VimballRecord
+.netrwhist
+backup/*
+undo/*
