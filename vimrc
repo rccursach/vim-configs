@@ -2,15 +2,31 @@ set nocompatible " be iMproved
 
 execute pathogen#infect()
 
-autocmd vimenter * NERDTree        "Open NERDtree on vim enter
+let g:airline_extensions = ['branch', 'tabline']
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:airline_powerline_fonts=1
+
+"autocmd vimenter * NERDTree        "Open NERDtree on vim enter
 autocmd vimenter * wincmd w "Change to last right-top window
 "CTRL_n toggles NERDtree
 map <C-n> :NERDTreeToggle<CR>
 "Allow quit when NERDtree is the only opened window"
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-set autoindent " Auto indention should be on
-set smartindent
+"set autoindent " Auto indention should be on
+"set smartindent
 set expandtab
 set tabstop=2
 
