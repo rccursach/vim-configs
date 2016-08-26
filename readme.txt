@@ -1,46 +1,72 @@
 
-# Steps to get my vim addons installed
+## 1. Install VIM
 
+### On Linux (Debian-like)
 
-sudo apt-get install vim vim-runtime vim-scripts vim-pathogen vim-rails vim-addon-manager
+```bash
+sudo apt-get update
+sudo apt-get install vim vim-runtime vim-scripts
+```
 
-vim-addons install rails colors-sampler-pack pathogen
+### On Mac
 
+``` bash
+brew update
+brew install vim
+```
 
-# tcomment
+## 2. Install patched fonts (Powerline)
 
-vim ~/.vim/installers/tcomment.vba
+### On linux (Again Debian-like)
 
+```bash
+$ mkdir ~/.fonts
+$ cd ~/.fonts
+```
+Download powerline fonts with:
 
-cd ~/.vim/bundle
+```bash
+$ git clone https://github.com/Lokaltog/powerline-fonts
+```
 
-# Nerdtree
+or
 
-git clone https://github.com/scrooloose/nerdtree.git
+```bash
+$ wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+$ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+```
 
+then
 
-echo Abrir vim y ejecutar el comando :Helptags
+```bash
+$ mkdir -p ~/.config/fontconfig/conf.d/
+$ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
+$ fc-cache -vf ~/.fonts/
+```
 
-# fugitive
+### On Mac
 
-git clone git://github.com/tpope/vim-fugitive.git
+```bash
+$ git clone https://github.com/powerline/fonts.git && cd fonts && ./install.sh
+```
 
-vim -u NONE -c "helptags vim-fugitive/doc" -c q
+Set a powerline patched font like `Meslo LG L Regular for Powerline` as your terminal font.
 
+## 3. Copy vimrc
 
-# airline
-git clone https://github.com/bling/vim-airline
+```
+$ cp vimrc ~/.vimrc
+```
 
-echo Abrir vim y ejecutar el comando :Helptags
+## 4. Install Vundle and addons
 
-mkdir ~/.fonts
-cd ~/.fonts
-# git clone https://github.com/Lokaltog/powerline-fonts
-wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+```bash
+$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
 
-mkdir -p ~/.config/fontconfig/conf.d/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+Once downloaded install pluguns/addons with:
 
-fc-cache -vf ~/.fonts/
+```bash
+$ vim +PluginInstall +qall
+```
