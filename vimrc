@@ -43,10 +43,14 @@ map <C-n> :NERDTreeToggle<CR>
 
 "tabs identation
 set expandtab
-set tabstop=2
+"set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 syntax on
 filetype plugin indent on
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 "ui stuff
 set t_Co=255
